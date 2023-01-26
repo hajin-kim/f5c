@@ -331,12 +331,7 @@ align_kernel_core_2d_shm(int32_t* read_len, ptr_t* read_ptr,
                 bool ll_ob = ll == -INFINITY;
                 bool ur_ob = ur == -INFINITY;
 
-                bool right = false;
-                if (ll_ob && ur_ob) {
-                    right = band_idx % 2 == 1;
-                } else {
-                    right = ll < ur; // Suzuki's rule
-                }
+                bool right = band_idx % 2 == 1;
 
                 if (right) {
                     band_lower_left[band_idx] = band_lower_left_shm[0] =
